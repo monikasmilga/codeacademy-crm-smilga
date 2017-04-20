@@ -1,16 +1,18 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\models\PcrmPersons;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return PcrmPersons::get();
+});
+
+Route::get('/new-person', function () {
+
+    return PcrmPersons::create([
+        'id' => Ramsey\Uuid\Uuid::uuid4(),
+        'name' => 'Monika',
+        'email' => 'emailas monikos',
+        'phone' => '556633'
+    ]);
 });
