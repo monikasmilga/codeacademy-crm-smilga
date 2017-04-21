@@ -2,19 +2,21 @@
 
 namespace App\models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PcrmPersons extends Model
+class PcrmPersons extends CoreModel
 {
-    use SoftDeletes;
+    /**
+     * The database table used by the model
+     *
+     * @var string
+     */
     protected $table = 'pcrm_persons';
 
     /**
      * Fields which will be manipulated
      *
+     * @var array
      */
-
 
     protected $fillable = ['id', 'name', 'email', 'phone'];
 }
