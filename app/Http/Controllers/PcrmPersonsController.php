@@ -13,7 +13,10 @@ class PcrmPersonsController extends Controller {
 	 */
 	public function index()
 	{
-		return PcrmPersons::get();
+		return PcrmPersons::orderBy('created_at', 'desc')           // builder
+                            ->where('count', '>', 5)                // builder
+                            ->select('id', 'name', 'email', 'phone') // builder
+                            ->first();                                // data
 	}
 
 	/**
