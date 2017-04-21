@@ -1,18 +1,13 @@
 <?php
 
-use App\models\PcrmPersons;
+Route::get('/persons', [
 
-Route::get('/', function () {
+    'uses'=> 'PcrmPersonsController@index'
 
-    return PcrmPersons::get();
-});
+]);
 
-Route::get('/new-person', function () {
+Route::get('/generate-fake-data/persons/{count?}', [
 
-    return PcrmPersons::create([
-        'id' => Ramsey\Uuid\Uuid::uuid4(),
-        'name' => 'Monika',
-        'email' => 'emailas monikos',
-        'phone' => '556633'
-    ]);
-});
+    'uses' => 'PcrmFakeDataController@generatePersons'
+
+]);
