@@ -5,7 +5,7 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Webpatser\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 class CoreModel extends Model
 {
@@ -25,7 +25,16 @@ class CoreModel extends Model
          */
 
         static::creating(function ($model) {
-            $model->{$model->getKeyName()} = Uuid::generate()->string;
+            $model->{$model->getKeyName()} = (string)$model->generateNewId();
         });
+    }
+
+    public function generateNewId()
+    {
+        if(isset($this->attributes ['id'])) {
+            return $this->attributes['id'];
+        }
+
+        return Uuid::uuid4();
     }
 }
