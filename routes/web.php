@@ -1,105 +1,115 @@
 <?php
 
 /**
+ * All routes that generate fake data for CLIENTS
+ */
+
+Route::group(['prefix' => 'generate-fake-data'], function () {
+
+    Route::get('persons/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generatePersons'
+
+    ]);
+
+    Route::get('/clients/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateClients'
+
+    ]);
+
+    Route::get('/clients-positions/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateClientsPositions'
+    ]);
+
+    Route::get('/projects-logins-types/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjectsLoginsTypes'
+
+    ]);
+
+    Route::get('/projects-persons-types/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjectsPersonsTypes'
+
+    ]);
+
+    Route::get('/project-types/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjectTypes'
+
+    ]);
+
+    Route::get('/projects/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjects'
+    ]);
+
+    Route::get('/clients-persons-positions-connections/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateClientsPersonsPositionsConnections'
+    ]);
+
+    Route::get('/projects-logins/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjectsLogins'
+
+    ]);
+
+    Route::get('/projects-logins-connections/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjectsLoginsConnections'
+
+    ]);
+
+    Route::get('/projects-persons-types-connections/{count?}', [
+
+        'uses' => 'PcrmFakeDataController@generateProjectsPersonsTypesConnections'
+
+    ]);
+
+});
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
  * PERSONS
  */
 Route::get('/persons', [
 
-    'uses'=> 'PcrmPersonsController@index'
+    'uses' => 'PcrmPersonsController@index'
 
 ]);
 
-Route::get('/generate-fake-data/persons/{count?}', [
 
-    'uses' => 'PcrmFakeDataController@generatePersons'
-
-]);
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * CLIENTS
  */
 Route::get('/clients', [
 
-    'uses'=> 'PcrmClientsController@index'
+    'uses' => 'PcrmClientsController@index'
 
 ]);
 
-Route::get('/generate-fake-data/clients/{count?}', [
-
-    'uses' => 'PcrmFakeDataController@generateClients'
-
-]);
 
 /**
  * CLIENTS POSITIONS
  */
 Route::get('/clients-positions', [
 
-    'uses'=> 'PcrmClientsPositionsController@index'
+    'uses' => 'PcrmClientsPositionsController@index'
 
 ]);
 
-Route::get('/generate-fake-data/clients-positions/{count?}', [
-
-    'uses'=> 'PcrmFakeDataController@generateClientsPositions'
-]);
-
-/**
- * PROJECTS LOGINS TYPES
- */
-
-Route::get('/projects-logins-types', [
-
-    'uses'=> 'PcrmProjectsLoginsTypesController@index'
-
-]);
-
-Route::get('/generate-fake-data/projects-logins-types/{count?}', [
-
-    'uses'=> 'PcrmFakeDataController@generateProjectsLoginsTypes'
-
-]);
-
-/**
- * PROJECTS PERSONS TYPES
- */
-
-Route::get('/projects-persons-types', [
-
-    'uses'=> 'PcrmProjectsPersonsTypesController@index'
-
-]);
-
-Route::get('/generate-fake-data/projects-persons-types/{count?}', [
-
-    'uses'=> 'PcrmFakeDataController@generateProjectsPersonsTypes'
-
-]);
-
-Route::get('/project-types', [
-
-    'uses'=>'PcrmProjectTypesController@index'
-]);
-
-Route::get('/generate-fake-data/project-types/{count?}', [
-
-    'uses'=> 'PcrmFakeDataController@generateProjectTypes'
-
-]);
-
-/**
- * PROJECTS
- */
-
-Route::get('/projects', [
-
-    'uses'=>'PcrmProjectsController@index'
-]);
-
-Route::get('/generate-fake-data/projects/{count?}', [
-
-    'uses'=>'PcrmFakeDataController@generateProjects'
-]);
 
 /**
  * CLIENTS PERSONS POSITIONS CONNECTIONS
@@ -107,55 +117,77 @@ Route::get('/generate-fake-data/projects/{count?}', [
 
 Route::get('/clients-persons-positions-connections', [
 
-    'uses'=>'PrcmClientsPersonsPositionsConnectionsController@index'
+    'uses' => 'PrcmClientsPersonsPositionsConnectionsController@index'
 ]);
 
-Route::get('/generate-fake-data/clients-persons-positions-connections', [
 
-    'uses'=>'PcrmFakeDataController@generateClientsPersonsPositionsConnections'
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * PROJECTS LOGINS TYPES
+ */
+
+Route::get('/projects-logins-types', [
+
+    'uses' => 'PcrmProjectsLoginsTypesController@index'
+
 ]);
+
+
+/**
+ * PROJECTS PERSONS TYPES
+ */
+
+Route::get('/projects-persons-types', [
+
+    'uses' => 'PcrmProjectsPersonsTypesController@index'
+
+]);
+
+
+Route::get('/project-types', [
+
+    'uses' => 'PcrmProjectTypesController@index'
+]);
+
+
+/**
+ * PROJECTS
+ */
+
+Route::get('/projects', [
+
+    'uses' => 'PcrmProjectsController@index'
+]);
+
 
 /**
  * PROJECTS LOGINS
  */
 Route::get('/projects-logins', [
 
-    'uses'=>'PcrmProjectsLoginsController@index'
+    'uses' => 'PcrmProjectsLoginsController@index'
 
 ]);
 
-Route::get('/generate-fake-data/projects-logins/{count?}', [
-
-    'uses'=>'PcrmFakeDataController@generateProjectsLogins'
-
-]);
 
 /**
  * PROJECTS LOGINS CONNECTIONS
  */
 Route::get('projects-logins-connections', [
 
-    'uses'=>'PcrmProjectsLoginsConnectionsController@index'
+    'uses' => 'PcrmProjectsLoginsConnectionsController@index'
 
 ]);
 
-Route::get('/generate-fake-data/projects-logins-connections/{count?}', [
-
-    'uses'=>'PcrmFakeDataController@generateProjectsLoginsConnections'
-
-]);
 
 /**
  * PROJECTS PERSONS TYPES CONNECTIONS
  */
 Route::get('/projects-persons-types-connections', [
 
-    'uses'=>'PcrmProjectsPersonsTypesConnectionsController@index'
+    'uses' => 'PcrmProjectsPersonsTypesConnectionsController@index'
 
 ]);
 
-Route::get('/generate-fake-data/projects-persons-types-connections/{count?}', [
 
-    'uses'=>'PcrmFakeDataController@generateProjectsPersonsTypesConnections'
-
-]);
