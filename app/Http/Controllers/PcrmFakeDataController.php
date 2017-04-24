@@ -17,9 +17,15 @@ use Faker\Factory;
 
 class PcrmFakeDataController extends Controller
 {
+
+    /**
+     * Function that generates fake Persons data to data base
+     *
+     * @param int $count
+     */
     public function generatePersons(int $count = 20)
     {
-        $faker = Factory::create();
+       $faker = Factory::create();
 
 
         for ($i = 0; $i < $count; $i++) {
@@ -32,6 +38,11 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Clients data to data base
+     */
     public function generateClients(int $count = 20)
     {
         $faker = Factory::create();
@@ -46,6 +57,11 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Clients Positions data to data base
+     */
     public function generateClientsPositions(int $count = 20)
     {
         $faker = Factory::create();
@@ -59,6 +75,12 @@ class PcrmFakeDataController extends Controller
             );
         }
     }
+
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Projects Logins Types data to data base
+     */
 
     public function generateProjectsLoginsTypes(int $count = 20)
     {
@@ -74,6 +96,12 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Projects Persons Types data to data base
+     */
+
     public function generateProjectsPersonsTypes(int $count = 20)
     {
         $faker = Factory::create();
@@ -88,6 +116,12 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Project Types data to data base
+     */
+
     public function generateProjectTypes(int $count = 20)
     {
         $faker = Factory::create();
@@ -101,6 +135,12 @@ class PcrmFakeDataController extends Controller
             );
         }
     }
+
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Projects data to data base
+     */
 
     public function generateProjects(int $count = 20)
     {
@@ -118,6 +158,12 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Clients Persons Positions Connections data to data base
+     */
+
     public function generateClientsPersonsPositionsConnections(int $count = 20)
     {
         $faker = Factory::create();
@@ -133,6 +179,12 @@ class PcrmFakeDataController extends Controller
             );
         }
     }
+
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Projects Logins data to data base
+     */
 
     public function generateProjectsLogins(int $count = 20)
     {
@@ -150,9 +202,15 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Projects Logins Connections data to data base
+     */
+
     public function generateProjectsLoginsConnections(int $count = 20)
     {
-        $faker = Factory::create();
+ //       $faker = Factory::create();
 
         for ($i = 0; $i < $count; $i++) {
             PcrmProjectsLoginsConnections::create(
@@ -164,9 +222,15 @@ class PcrmFakeDataController extends Controller
         }
     }
 
+    /**
+     * @param int $count
+     *
+     * Function that generates fake Projects Persons Types Connections data to data base
+     */
+
     public function generateProjectsPersonsTypesConnections(int $count = 20)
     {
-        $faker = Factory::create();
+ //       $faker = Factory::create();
 
         for ($i = 0; $i < $count; $i++) {
             PcrmProjectsPersonsTypesConnections::create(
