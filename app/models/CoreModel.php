@@ -29,6 +29,11 @@ class CoreModel extends Model
         });
     }
 
+    /**
+     * Function that leaves old ID if it is set, if not - creates a new one
+     *
+     * @return \Ramsey\Uuid\UuidInterface
+     */
     public function generateNewId()
     {
         if(isset($this->attributes ['id'])) {

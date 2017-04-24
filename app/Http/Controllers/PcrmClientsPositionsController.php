@@ -1,35 +1,36 @@
 <?php namespace App\Http\Controllers;
 
-use App\models\PcrmClients;
+use App\models\PcrmClientsPositions;
 use Illuminate\Routing\Controller;
 
-class PcrmClientsController extends Controller {
+class PcrmClientsPositionsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /pcrmclients
+	 * GET /pcrmclientspositions
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return PcrmClients::get();
+		return PcrmClientsPositions::get();
+        //return PcrmClientsPositions::get()->toArray();
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /pcrmclients/create
+	 * GET /pcrmclientspositions/create
 	 *
 	 * @return Response
 	 */
 	public function create()
-    {
-        //
-    }
+	{
+		//
+	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /pcrmclients
+	 * POST /pcrmclientspositions
 	 *
 	 * @return Response
 	 */
@@ -40,7 +41,7 @@ class PcrmClientsController extends Controller {
 
 	/**
 	 * Display the specified resource.
-	 * GET /pcrmclients/{id}
+	 * GET /pcrmclientspositions/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -52,7 +53,7 @@ class PcrmClientsController extends Controller {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /pcrmclients/{id}/edit
+	 * GET /pcrmclientspositions/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -64,7 +65,7 @@ class PcrmClientsController extends Controller {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /pcrmclients/{id}
+	 * PUT /pcrmclientspositions/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -76,7 +77,7 @@ class PcrmClientsController extends Controller {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /pcrmclients/{id}
+	 * DELETE /pcrmclientspositions/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

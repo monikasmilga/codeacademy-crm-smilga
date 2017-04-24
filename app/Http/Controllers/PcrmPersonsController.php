@@ -15,9 +15,7 @@ class PcrmPersonsController extends Controller {
 	public function index()
 
     {
-
-        return PcrmPersons::get();
-
+        return PcrmPersons::get()->toArray();
     }
 
 	/**
