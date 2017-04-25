@@ -31,4 +31,8 @@ class PrcmClientsPersonsPositionsConnections extends CoreModel
         return $this->hasOne(PcrmClients::class, 'id', 'client_id');
     }
 
+    public function typeData()
+    {
+        return $this->hasOne(PcrmProjectsPersonsTypes::class, 'id', 'type_id');
+    }
 }

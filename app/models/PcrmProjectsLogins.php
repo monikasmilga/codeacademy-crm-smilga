@@ -17,4 +17,10 @@ class PcrmProjectsLogins extends CoreModel
      */
     protected $fillable = ['id', 'type_id', 'username', 'password', 'login_url'];
 
+    protected $hidden = ['count', 'created_at', 'updated_at', 'deleted_at'];
+
+    public function typeData ()
+    {
+        return $this->hasOne(PcrmProjectsLoginsTypes::class, 'id', 'type_id');
+    }
 }

@@ -1,10 +1,11 @@
 <?php
 
 
+use App\models\PcrmProjectsLoginsConnections;
 use App\models\PrcmClientsPersonsPositionsConnections;
 
 Route::get('/', function() {
-    return PrcmClientsPersonsPositionsConnections::with(['personalData', 'clientData'])->get();
+    return PcrmProjectsLoginsConnections::with(['projectData', 'loginData'])->get();
     return view('welcome');
 });
 

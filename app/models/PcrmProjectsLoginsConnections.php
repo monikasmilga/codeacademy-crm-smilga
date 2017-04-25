@@ -17,4 +17,15 @@ class PcrmProjectsLoginsConnections extends CoreModel
      */
     protected $fillable = ['id', 'project_id', 'login_id'];
 
+    protected $hidden = ['count', 'created_at', 'updated_at', 'deleted_at', 'project_id', 'login_id'];
+
+    public function projectData()
+    {
+        return $this->hasOne(PcrmProjects::class, 'id', 'project_id');
+    }
+
+    public function loginData()
+    {
+        return $this->hasOne(PcrmProjectsLogins::class, 'id', 'login_id');
+    }
 }
