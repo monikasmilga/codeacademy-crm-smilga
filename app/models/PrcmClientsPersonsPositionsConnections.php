@@ -19,4 +19,16 @@ class PrcmClientsPersonsPositionsConnections extends CoreModel
      */
     protected $fillable = ['id', 'client_id', 'person_id', 'position_id', 'description'];
 
+    protected $hidden = ['count', 'created_at', 'updated_at', 'deleted_at'];
+
+    public function personalData ()
+    {
+        return $this->hasOne(PcrmPersons::class, 'id', 'person_id');
+    }
+
+    public function clientData ()
+    {
+        return $this->hasOne(PcrmClients::class, 'id', 'client_id');
+    }
+
 }

@@ -1,7 +1,15 @@
 <?php
 
+
+use App\models\PrcmClientsPersonsPositionsConnections;
+
+Route::get('/', function() {
+    return PrcmClientsPersonsPositionsConnections::with(['personalData', 'clientData'])->get();
+    return view('welcome');
+});
+
 /**
- * All routes that generate fake data for CLIENTS
+ * All routes that generate fake data
  */
 
 Route::group(['prefix' => 'generate-fake-data'], function () {
@@ -70,12 +78,6 @@ Route::group(['prefix' => 'generate-fake-data'], function () {
     ]);
 
 });
-
-
-
-
-
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

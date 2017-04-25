@@ -13,7 +13,14 @@ class PcrmClientsController extends Controller {
 	 */
 	public function index()
 	{
-		return PcrmClients::get();
+        return PcrmClients::with(['projects', 'personal'])->get();
+
+        PcrmClients::all();
+        $configuration = [
+            'example' => 'Example data',
+            'client' => PcrmClients::with(['projects', 'personal'])->get(),
+        ];
+        return view('data', $configuration);
 	}
 
 	/**

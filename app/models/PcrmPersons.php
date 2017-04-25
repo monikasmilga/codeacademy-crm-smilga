@@ -19,4 +19,13 @@ class PcrmPersons extends CoreModel
      */
 
     protected $fillable = ['id', 'name', 'email', 'phone'];
+
+    protected $hidden = ['count', 'created_at', 'deleted_at', 'updated_at'];
+
+    //protected $with = ['people'];
+
+    public function people()
+    {
+        //return $this->hasMany()
+    }
 }
