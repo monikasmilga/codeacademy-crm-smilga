@@ -15,7 +15,7 @@ class PcrmClients extends CoreModel
     /**
      * Fields which will be manipulated
      */
-    protected $fillable = ['id ', 'name', 'type'];
+    protected $fillable = ['id', 'name', 'type'];
 
     protected $hidden = ['count', 'created_at', 'deleted_at', 'updated_at'];
 
