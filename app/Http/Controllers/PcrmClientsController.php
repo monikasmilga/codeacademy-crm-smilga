@@ -12,7 +12,18 @@ class PcrmClientsController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
+    {
+        $configuration = [];
+
+        $configuration ['clients'] = PcrmClients::with(['projects',])->get();
+        $configuration['totalCount'] = sizeof($configuration['clients']);
+
+        //return $configuration ['clients'];
+
+        return view('content.clients', $configuration);
+
+
+        /*
         return PcrmClients::with(['projects', 'personal'])->get();
 
         PcrmClients::all();
@@ -20,7 +31,7 @@ class PcrmClientsController extends Controller {
             'example' => 'Example data',
             'client' => PcrmClients::with(['projects', 'personal'])->get(),
         ];
-        return view('data', $configuration);
+        return view('data', $configuration); */
 	}
 
 	/**

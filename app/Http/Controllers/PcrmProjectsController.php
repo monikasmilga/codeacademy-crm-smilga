@@ -13,7 +13,15 @@ class PcrmProjectsController extends Controller {
 	 */
 	public function index()
 	{
-		return PcrmProjects::get();
+	    $configuration = [];
+
+	    $configuration ['projects'] = PcrmProjects::with(['client', 'persons'])->get()->toArray();
+
+	    //dd($configuration);
+
+        return view('content.projects', $configuration);
+
+//		return PcrmProjects::get();
 	}
 
 	/**

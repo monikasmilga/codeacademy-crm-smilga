@@ -19,4 +19,14 @@ class PcrmProjects extends CoreModel
      */
     protected $fillable = ['id', 'client_id', 'type_id', 'name', 'description'];
 
+
+    public function client()
+    {
+        return $this->hasOne(PcrmClients::class, 'id', 'client_id');//->with('personal');
+    }
+
+    public function persons()
+    {
+        return $this->hasMany(PcrmProjectsPersonsTypesConnections::class, 'project_id', 'id');
+    }
 }

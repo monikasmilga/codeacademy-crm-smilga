@@ -4,9 +4,11 @@
 use App\models\PcrmProjectsLoginsConnections;
 use App\models\PrcmClientsPersonsPositionsConnections;
 
-Route::get('/', function() {
-    return PcrmProjectsLoginsConnections::with(['projectData', 'loginData'])->get();
-    return view('welcome');
+Route::get('/', function () {
+
+    return view('main');
+
+    // return PcrmProjectsLoginsConnections::with(['projectData', 'loginData'])->get();
 });
 
 /**
@@ -15,22 +17,21 @@ Route::get('/', function() {
 
 Route::group(['prefix' => 'generate-fake-data'], function () {
 
+    Route::group(['prefix' => 'clients'], function ()
+    {
+        Route::get('/positions/{count?}', ['uses' => 'PcrmFakeDataController@generateClientsPositions']);
+        
+        Route::get('/{count?}', ['uses' => 'PcrmFakeDataController@generateClients']);
+
+
+    });
+
     Route::get('persons/{count?}', [
 
         'uses' => 'PcrmFakeDataController@generatePersons'
 
     ]);
 
-    Route::get('/clients/{count?}', [
-
-        'uses' => 'PcrmFakeDataController@generateClients'
-
-    ]);
-
-    Route::get('/clients-positions/{count?}', [
-
-        'uses' => 'PcrmFakeDataController@generateClientsPositions'
-    ]);
 
     Route::get('/projects-logins-types/{count?}', [
 
@@ -120,7 +121,7 @@ Route::get('/clients-positions', [
 
 Route::get('/clients-persons-positions-connections', [
 
-    'uses' => 'PrcmClientsPersonsPositionsConnectionsController@index'
+    'uses' => 'PcrmClientsPersonsPositionsConnectionsController@index'
 ]);
 
 
